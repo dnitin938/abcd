@@ -1,0 +1,153 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using System.Threading.Tasks;
+using UnityEngine.UI;
+
+
+
+public class SceneController : MonoBehaviour
+
+{
+
+    public ImageSynthesis synth;
+    public GameObject[] prefabs;
+    public int maxObjects=25;
+    public int count = 1;
+    public float waitTime = 20f; // Time to wait in seconds
+    public int sceneNumber = 0; // Starting scene number
+    public int maxScenes = 10; // Maximum number of scenes to generate
+    public float delayTime = 5f;
+    //private ShapePool pool;
+    //private bool simulationComplete = false;
+    //private int a=0;
+    private int b=0;
+    public float generationTime = 40f; // Time between prefab generation
+
+    private float timeSinceGeneration; // Time since last prefab generation
+    public static int OnEnableCount = 0;
+    
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+        //pool =ShapePool.Create(prefabs);
+        //Invoke("GetActiveSceneDelayed", 10f);
+        GenerateRandom();
+        
+       
+        //EditorSceneManager.LoadScene(EditorSceneManager.GetActiveScene().name);
+
+        
+        
+        
+
+        
+    }
+
+
+    
+
+    // Update is called once per frame
+
+  private void OnEnable()
+
+    {
+        OnEnableCount++;
+        Debug.Log("OnEnable has been called " + OnEnableCount + " times.");
+    }  
+    
+  void Update()
+    {
+        timeSinceGeneration += Time.deltaTime;
+        
+
+        // If it's been long enough since the last prefab generation, generate a new one
+        if (timeSinceGeneration >= generationTime)
+        {
+            
+            
+            timeSinceGeneration =2f; // Reset the timer 
+            string filename= $"{OnEnableCount}";
+            b++;
+            synth.Save(filename, 256,256,"abc");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
+            //UnityEditor.EditorApplication.isPlaying = false;
+            Invoke("GenerateRandom", delayTime);
+            
+            //GenerateRandom();
+            
+        }
+
+        
+        
+    }
+
+  
+    void GenerateRandom() {
+        //pool.ReclaimAll();
+
+        
+    
+
+
+        for (int i=0; i< maxObjects; i++){
+            int prefabIndx =Random.Range(0, prefabs.Length);
+            GameObject prefab = prefabs[prefabIndx];
+            float newX,newY,newZ;
+            newX=Random.Range(-61.0f,50.0f);
+            newY=Random.Range(400.0f,500.0f);
+            newZ=Random.Range(-50.0f,50.0f);
+            Vector3 newPos = new Vector3(newX,newY,newZ);
+
+            // rotatuion
+            var newRot = Random.rotation;
+            //var shape = pool.Get((ShapeLabel)prefabIndx);
+            //var newObj =shape.obj;
+            //newObj.transform.position=newPos;
+            //newObj.transform.rotation=newRot;
+            var newObj = Instantiate(prefab,newPos,newRot);
+            
+
+            
+
+            //scale
+            float sx=Random.Range(1.0f,1.0f);
+            Vector3 newScale = new Vector3(sx,sx,sx);
+            newObj.transform.localScale = newScale;
+            // color
+            float newR, newG , newB;
+            newR =Random.Range(0.0f,1.0f);
+            newG =Random.Range(0.0f,1.0f);
+            newB =Random.Range(0.0f,1.0f);
+            //var newColor =new Color(0.6f,0.6f,0.6f);
+            //newObj.GetComponent<Renderer>().material.color = newColor;
+
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
