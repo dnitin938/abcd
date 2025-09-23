@@ -18,8 +18,9 @@ This repository contains code that is [easy to add to any existing Unity project
 * __Normals__ - surfaces are colored according to their orientation in relation with the camera 
 * *... and more in the future*
 
-![Readme_DescriptionMainImageNew.jpg](https://bitbucket.org/repo/5KgjLE/images/2557031440-Readme_DescriptionMainImageNew.jpg)
-![Readme_Description4Passes.png](https://bitbucket.org/repo/5KgjLE/images/3420646604-Readme_Description4Passes.png)
+![Readme_DescriptionMainImageNew.jpg]([https://bitbucket.org/repo/5KgjLE/images/2557031440-Readme_DescriptionMainImageNew.jpg](https://lh3.googleusercontent.com/sitesv/AICyYdabWB99-qPSzWIKVVbZdWPuUr6JZ11Vg9nEmqnkn90ucltHiYQdqTnpIYw3Hpq5K4zRuuP-aWkMmZIs6YwySHEalF3Sjtmr5bM8mfhwkeGPALVh0bBQ7mXnDRDDseAAOYhASZTOBbL4WMGwtf4SD6R30q2Ryp_btcjIx4EwrWKnOEtx_hyqXMj4mSLB4Pz7CAuuByIW2G9Yw98OmfKJUFvbfeBSqdPEKkADuCY=w1280))
+![Readme_Description4Passes.png](<img width="600" height="548" alt="image" src="https://github.com/user-attachments/assets/ace185da-270c-4595-b3ad-57eeb834380b" />
+)
 *(Assets used in the image above are courtesy of [FINWARD STUDIOS](http://www.finwardstudios.com) and not included in this repository. You can obtain this package from [Asset Store](http://u3d.as/BaG))*
 
 ### Wiki ###
